@@ -5,7 +5,7 @@ import UniqueFeature from '../../components/UniqueFeature/UniqueFeature';
 require("./catalog.scss");
 
 /*****************************************************************************
- * catalog type entry page 
+ * catalog type entry page
  *****************************************************************************/
 class CatalogEntryPage {
 
@@ -17,7 +17,7 @@ class CatalogEntryPage {
 	}
 
 	onDOMReady() {
-		
+
 		var sharedComponent = new SharedComponent();
 		var uniqueFeature = new UniqueFeature();
 

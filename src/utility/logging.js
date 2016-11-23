@@ -1,7 +1,7 @@
 export function debug(msg) {
 	var debug = document.createElement('div');
 	debug.innerHTML = msg;
-	//document.getElementsByTagName('body')[0].appendChild(debug);		
+	//document.getElementsByTagName('body')[0].appendChild(debug);
 	document.getElementById('content').appendChild(debug);
 }
 

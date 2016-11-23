@@ -1,6 +1,4 @@
-import $ from 'jquery';
 import _ from 'underscore';
-import bootstrap from 'bootstrap';
 import { log, debug } from '../../utility/logging';
 
 /*****************************************************************************
@@ -43,7 +41,7 @@ class UniqueFeature {
 	testUnderscoreImport() {
 
 		//test underscore import
-		var underscoreTest = _.last([34,1,55,2,20], 1);		
+		var underscoreTest = _.last([34,1,55,2,20], 1);
 		debug('underscore test result: ' + underscoreTest);
 	}
 }

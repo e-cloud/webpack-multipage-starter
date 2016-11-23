@@ -2,69 +2,78 @@ var path = require("path");
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+var extractCss = new ExtractTextPlugin({
+    filename: "[name].[contenthash:4].css"
+})
+var extractScss = new ExtractTextPlugin({
+    filename: "[name].[contenthash:4].css"
+})
+
 module.exports = {
-    cache: true,
     entry: {
         home: "./src/entry/home/home.js",
         catalog: "./src/entry/catalog/catalog.js"
     },
     output: {
         path: path.join(__dirname, "dist/"),
-        publicPath: "/",
-        filename: "js/[name].js"
+        pathinfo: true,
+        filename: "[name].[chunkhash:4].js"
     },
     module: {
-        loaders: [
-            { 
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                loader: "babel-loader" 
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             },
-            { 
+            {
                 test: /\.css/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                loader: extractCss.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: ["css", "postcss", 'resolve-url']
+                })
             },
-            { 
+            {
                 test: /\.scss/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
-            },
-            { 
-                test: /\.woff/,
-                loader: "file-loader?name=fonts/[name].woff" 
-            },
-            { 
-                test: /\.ttf/,
-                loader: "file-loader?name=fonts/[name].ttf" 
-            },
-            { 
-                test: /\.eot/, 
-                loader: "file-loader?name=fonts/[name].eot" 
-            },
-            { 
-                test: /\.svg/, 
-                loader: "file-loader?name=fonts/[name].svg" 
-            }           
+                loader: extractScss.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: ["css", "postcss", "resolve-url", "sass"]
+                })
+            }
         ]
     },
-    resolve: {
-        root: [
-            __dirname + "/src/vendor"
-        ],
-        alias: {
-            "bootstrap": "bootstrap/bootstrap.3.3.2.min.js",
-            "underscore": "underscore.1.7.0.min.js",
-            "jquery": "jquery-1.11.2.min.js"
-        }
-    },  
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("core", "js/core.js", ["home", "catalog"]),
-        new ExtractTextPlugin("css/[name].css"),
-        new webpack.ProvidePlugin({
-            jQuery: "jquery",
-            $: "jquery"
-        })      
+        new webpack.LoaderOptionsPlugin({
+            debug: false
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: "[name].[chunkhash:4].js",
+            minChunks: (mod) => {
+                if (typeof mod.resource !== 'string') {
+                    return false
+                }
+
+                const isThirdParty = mod.resource.indexOf('node_modules') !== -1
+                    || mod.resource.indexOf('bower_components') !== -1
+
+                return isThirdParty
+            },
+            chunks: ["home", "catalog"]
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "commons",
+            filename: "commons.[chunkhash:4].js",
+            chunks: ["home", "catalog"]
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
+            filename: "[name].[chunkhash:4].js",
+        }),
+        extractCss,
+        extractScss,
     ],
-    externals: {
-        "$": "jQuery"
-    }   
+    resolveLoader: {
+        moduleExtensions: ["-loader"]
+    }
 };

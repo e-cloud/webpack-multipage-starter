@@ -6,7 +6,7 @@ import SharedComponent from '../../components/SharedComponent/SharedComponent';
 require("./home.scss");
 
 /*****************************************************************************
- * home page 
+ * home page
  *****************************************************************************/
 class Home {
 

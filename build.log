@@ -1,0 +1,55 @@
+Hash: de5763870d3b1d30cf77
+Version: webpack 2.1.0-beta.27
+Time: 2703ms
+           Asset      Size  Chunks             Chunk Names
+    home.eac0.js   5.59 kB    0, 4  [emitted]  home
+  vendor.1edb.js   78.8 kB    1, 4  [emitted]  vendor
+ catalog.680e.js   5.52 kB    2, 4  [emitted]  catalog
+ commons.f1a0.js   2.97 kB    3, 4  [emitted]  commons
+manifest.6df3.js   5.39 kB       4  [emitted]  manifest
+   home.aef7.css   15.6 kB    0, 4  [emitted]  home
+catalog.1c83.css   15.2 kB    2, 4  [emitted]  catalog
+commons.ae03.css  91 bytes    3, 4  [emitted]  commons
+chunk    {0} home.eac0.js, home.aef7.css (home) 3.63 kB {3} [initial] [rendered]
+    [2] ./src/components/HomeFeature1/HomeFeature1.js 696 bytes {0} [built]
+    [3] ./src/components/HomeFeature2/HomeFeature2.js 1.6 kB {0} [built]
+    [6] ./src/entry/home/home.scss 41 bytes {0} [built]
+    [8] ./src/components/HomeFeature1/HomeFeature1.scss 41 bytes {0} [built]
+    [9] ./src/components/HomeFeature2/HomeFeature2.scss 41 bytes {0} [built]
+   [13] ./src/entry/home/home.js 1.21 kB {0} [built]
+chunk    {1} vendor.1edb.js (vendor) 77.5 kB {4} [initial] [rendered]
+    [7] ./~/css-loader/lib/css-base.js 1.46 kB {1} [built]
+   [11] ./~/underscore/underscore.js 52.9 kB {1} [built]
+   [14] ./~/css-loader!./~/hint.css/hint.css 16 kB {1} [built]
+   [15] ./~/style-loader/addStyles.js 7.15 kB {1} [built]
+chunk    {2} catalog.680e.js, catalog.1c83.css (catalog) 4.53 kB {3} [initial] [rendered]
+    [4] ./src/components/UniqueFeature/UniqueFeature.js 2.57 kB {2} [built]
+    [5] ./src/entry/catalog/catalog.scss 41 bytes {2} [built]
+   [12] ./src/entry/catalog/catalog.js 1.92 kB {2} [built]
+chunk    {3} commons.f1a0.js, commons.ae03.css (commons) 2.04 kB [initial] [rendered]
+    [0] ./src/utility/logging.js 384 bytes {3} [built]
+    [1] ./src/components/SharedComponent/SharedComponent.js 1.61 kB {3} [built]
+   [10] ./src/components/SharedComponent/SharedComponent.scss 41 bytes {3} [built]
+chunk    {4} manifest.6df3.js (manifest) 0 bytes [entry] [rendered]
+Child extract-text-webpack-plugin:
+    chunk    {0} extract-text-webpack-plugin-output-filename 1.75 kB [entry] [rendered]
+        [0] ./~/css-loader/lib/css-base.js 1.46 kB {0} [built]
+        [1] ./~/css-loader!./~/postcss-loader!./~/resolve-url-loader!./~/sass-loader!./src/components/HomeFeature1/HomeFeature1.scss 292 bytes {0} [built]
+Child extract-text-webpack-plugin:
+    chunk    {0} extract-text-webpack-plugin-output-filename 1.93 kB [entry] [rendered]
+        [0] ./~/css-loader/lib/css-base.js 1.46 kB {0} [built]
+        [1] ./~/css-loader!./~/postcss-loader!./~/resolve-url-loader!./~/sass-loader!./src/components/HomeFeature2/HomeFeature2.scss 478 bytes {0} [built]
+Child extract-text-webpack-plugin:
+    chunk    {0} extract-text-webpack-plugin-output-filename 17.8 kB [entry] [rendered]
+        [0] ./~/css-loader/lib/css-base.js 1.46 kB {0} [built]
+        [1] ./~/css-loader!./~/hint.css/hint.css 16 kB {0} [built]
+        [2] ./~/css-loader!./~/postcss-loader!./~/resolve-url-loader!./~/sass-loader!./src/entry/home/home.scss 333 bytes {0} [built]
+Child extract-text-webpack-plugin:
+    chunk    {0} extract-text-webpack-plugin-output-filename 1.71 kB [entry] [rendered]
+        [0] ./~/css-loader/lib/css-base.js 1.46 kB {0} [built]
+        [1] ./~/css-loader!./~/postcss-loader!./~/resolve-url-loader!./~/sass-loader!./src/components/SharedComponent/SharedComponent.scss 257 bytes {0} [built]
+Child extract-text-webpack-plugin:
+    chunk    {0} extract-text-webpack-plugin-output-filename 17.8 kB [entry] [rendered]
+        [0] ./~/css-loader/lib/css-base.js 1.46 kB {0} [built]
+        [1] ./~/css-loader!./~/hint.css/hint.css 16 kB {0} [built]
+        [2] ./~/css-loader!./~/postcss-loader!./~/resolve-url-loader!./~/sass-loader!./src/entry/catalog/catalog.scss 350 bytes {0} [built]
