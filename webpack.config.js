@@ -5,9 +5,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var extractCss = new ExtractTextPlugin({
     filename: "[name].[contenthash:4].css"
 })
-var extractScss = new ExtractTextPlugin({
-    filename: "[name].[contenthash:4].css"
-})
 
 module.exports = {
     entry: {
@@ -35,7 +32,7 @@ module.exports = {
             },
             {
                 test: /\.scss/,
-                loader: extractScss.extract({
+                loader: extractCss.extract({
                     fallbackLoader: 'style-loader',
                     loader: ["css", "postcss", "resolve-url", "sass"]
                 })
@@ -71,7 +68,6 @@ module.exports = {
             filename: "[name].[chunkhash:4].js",
         }),
         extractCss,
-        extractScss,
     ],
     resolveLoader: {
         moduleExtensions: ["-loader"]
